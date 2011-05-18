@@ -1,0 +1,309 @@
+/* Reset Global Styles */
+html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, blockquote, cite, a, abbr, acronym, address, em, strong, img, dl, dt, dd, ol, ul, li, form, fieldset, legend, label, table, caption, tbody, tfoot, thead, tr, th, td {
+  padding: 0;
+  border: 0;
+  outline: 0;
+  margin: 0;
+  font-size: 1.0em;
+  font-weight: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  vertical-align: baseline; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal; }
+
+body {
+  font: 75%/1.25 Arial, Helvetica, sans-serif; }
+
+html > body {
+  font-size: 12px; }
+
+  
+a {
+  text-decoration: none; }
+
+/* NB 2008-07-09: Not sure why we need to do this in addition to a:link */
+a:link {
+  color: #0087d2;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+a:visited {
+  color: #0087D2; }
+
+body {
+  width: 960px;
+  margin: 10px auto 15px auto; }
+  body {
+width: 980px;
+  }
+
+#header {
+  height: 40px;
+  margin-bottom: 12px;
+  position: relative;
+  width: 980px;}
+
+#header a#home {
+  display: block;
+  height: 45px;
+  margin-left: 12px;
+  margin-top: -6px;
+  position: relative;
+  width: 120px;
+}
+
+#header #top-menu 
+{
+float:right;
+position:relative;
+right: 270px;
+top: -17px;
+z-index: 9999;
+}
+
+#header #top-menu li
+{
+border-left: 1px solid #DDDDDD;
+float: left;
+padding: 0 8px;
+}
+
+#header #top-menu li.first 
+{
+  border-left: 0 none;
+}
+
+.post_a_room {
+    background-color: #FED221;
+    border: 1px solid #EDD469;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.bubble_button {
+/*    background-color: #A2CC4E;
+#    border: 1px solid #85AA40;*/
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14pt;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+}
+
+#tagline {
+    color: #888888;
+    font-size: 14px;
+    margin-left: 140px;
+    margin-top: -29px;
+    vertical-align: top;
+}
+.narrow_page_section_content {
+background none repeat scroll 0 0 #F6F6F6;
+min-height: 50px;
+overflow: hidden;
+padding: 5px 20px 15px;        
+}
+#address_section {
+  margin-right: -20px;
+overflow: hidden;
+padding: 10px 0 0;
+background: none repeat scroll 0 0 #F6F6F6;
+         
+}
+#address_step1 {
+ overflow: hidden;
+}
+#address_step2 {
+
+}
+#map_container {
+  margin-top: 13px;
+overflow: hidden;
+}
+#map_canvas {
+  float: right;
+height: 308px;
+width: 308px;
+}
+.map {
+
+}
+.narrow_page_bg {
+  background: none repeat scroll 0 0 #F2F2EB;
+  padding: 24px 0;
+  width: 980px;
+}
+.narrow_page_section {
+  border: 1px solid #D1D1C9;
+  margin: 10px 0;
+ overflow: hidden;
+}
+.narrow_page_section h2 {
+background: none repeat scroll 0 0 #EBEBEB;
+  color: #33332F;
+  font-weight: bold;
+  letter-spacing: -0.25px;
+padding: 13px 20px;
+  width: 578px;
+}
+#post_a_place h2 {font-size: 18px;}
+
+.rounded_most {
+  -moz-border-radius: 20px 20px 20px 20px;
+}
+
+#post_a_place {
+  background: none repeat scroll 0 0 #FFFFFF;
+  color: #5F5f57;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px;
+  width: 620px;
+}
+#post_a_place label {
+color: #383831;
+display: block;
+float: left;
+margin: 3px 0;
+width: 150px;
+}
+#post_a_place .tall_label {
+margin: 8px 0px 0 15px;
+}
+#post_a_place .address{
+  width: 412px;
+}
+#post_a_place textarea, #post_a_place input[type="text"] {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #CCCCCC #999999 #999999 #CCCCCC;
+    border-style: solid;
+    border-width: 1px;
+    font: 17px arial,sans-serif normal;
+    height: 25px;
+    margin: 0;
+    padding: 5px 8px 0 6px;
+}
+#post_a_place .section_description {
+  background: none repeat scroll 0 0 #EBEBEB;
+  font-size: 14px;
+  line-height: 1.2em;
+  padding: 0 200px 13px 20px;
+}
+#post_a_place #location_search {
+  width: 412px;
+}
+.rounded_more {
+  -moz-border-radius: 10px 10px 10px 10px;
+}
+
+.drop_shadow_standard {
+  -moz-box-shadow: 0 2px 10px #AAAAAA;
+}
+
+#post_a_place_header {
+  background: none repeat scroll 0 0 #FFFFFF;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 0 0 0 9px;
+}
+#post_a_place_header h1 {
+  border: 0 none;
+  color: #33332F;
+  float: left;
+   font-size: 34px;
+   font-weight: bold;
+   letter-spacing: -0.5px;
+   margin-bottom: 0;
+   width: 385px;
+}
+#post_a_place_header h2 {
+  color: #EC008C;
+  float: left;
+ font-size: 19px;
+ font-weight: normal;
+ line-height: 1.3em;
+ margin-top: 6px;
+width: 385px;
+}
+.rounded_top {
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+}
+
+#how_it_works {
+  display: block;
+  float: right;
+  height: 125px;
+  width: 210px;
+}
+#contact_info_section {
+  border-top: medium none;
+} 
+.contact_info_section_fields {
+ clear: both;
+padding-bottom: 10px;
+width: 572px;
+margin: 0 0 0 20px;
+}
+.post_place_step1 h2, .post_place_step2 h2 {padding-bottom: 5px;}
+.get_started_description { float: left; 
+  margin-top: 10px; 
+overflow:hidden; 
+padding-top: 20px;
+width: 572px;}
+.ui-autocomplete {
+	background-color: white;
+	width: 300px;
+	border: 1px solid #cfcfcf;
+	list-style-type: none;
+  font-size: 14px;
+padding: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -moz-border-radius-bottomright: 10px;
+}
+
+#errorExplanation{
+    clear: both;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 0 173px;
+    padding: 10px 0 0;
+    width: 350px;
+}
+#errorExplanation h2 {
+  margin-bottom: 10px;
+  font-size: 1.25em; 
+}
+#errorExplanation li {
+font-weight: normal !important;
+list-style:   circle outside none;
+font-size: 13px;
+padding-bottom: 3px;
+width: 350px;
+color: #E51E18 !important;
+}
+#post_a_place ul#location li, ul#details li{color:#383831; font-size:13px; margin:0 23px; overflow:hidden; padding:5px;}
+        #post_a_place ul#location li{margin:0;}
+        #post_a_place ul#details li{padding:5px 0 15px 1px; margin:0;}
+    #post_a_place label {width:150px; display:block; float:left; color:#383831; margin: 3px 0;}
+    #post_a_place #exact_address_prompt label {width: auto; float: none; display: inline;}
+	#post_a_place .tall_label {margin: 8px 0;}
+    #post_a_place #details .label_with_description { float: left; width: 150px; padding: 0; margin: 0; }
+    #post_a_place #details .label_with_description .detail_description { color: #999; font-size: 11px; width: 125px; }
+    #post_a_place ul#location li .label_with_description label, ul#details li .label_with_description label{ float: none; }
+    #post_a_place select{float:left;}
+    #post_a_place textarea{float:left;}

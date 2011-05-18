@@ -1,0 +1,8 @@
+en:
+  errors:
+    template:
+      header:
+        one:    "Please fix the following errors:"
+        other:  "Please fix the following errors:"
+      # The variable :count is also available
+      body: ""

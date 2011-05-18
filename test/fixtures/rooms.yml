@@ -1,0 +1,11 @@
+one:
+  fulladdress: MyString
+  property_id: 1
+  event_id: 1
+  maximum_capacity: 1
+
+two:
+  fulladdress: MyString
+  property_id: 1
+  event_id: 1
+  maximum_capacity: 1

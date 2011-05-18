@@ -1,0 +1,71 @@
+<div class="narrow_page_bg rounded_most">
+  <%= form_for @room do |f| %>
+    <div id="post_a_place" class="rounded_more drop_shadow_standard">
+      <div id="post_a_place_header" class="rounded_top">
+        <a id="how_it_works" href="#" target="_blank"></a>
+        <h1>List your place</h1>
+        <h2>HourSpaces lets you rent your space for an hour and make money. <a target="_blank" href="#">Learn More</a></h2>
+      </div>
+
+      <div class="narrow_page_section post_place_step1 rounded_more">
+         <h2 class="rounded_top">Find your place</h2> 
+         <p class="section_description">Your contact information and full addres are only shared with guests that you have accepted. We hide these details from everyone else</p>
+          <div id="address_section">
+            <div id="address_step1">
+               <%= f.label :fulladdress, "Find Your Place:", :class=>"tall_label" %>
+               <%= f.text_field :fulladdress, :id=>"address" %>
+            </div>
+            <div id="address_step2">
+              <div id="map_container">
+              <div id="map_canvas" style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden; z-index: 0;"></div>
+            </div>
+          </div>
+          <div id="contact_info_section" class="get_started_description">
+            <div class="contact_info_section_fields">
+              <%= f.label :email, "Email Address:" %>
+              <%= f.text_field :email%>
+            </div> 
+            <div class="contact_info_section_fields">
+              <%= f.label :phone, "Phone number:" %>
+              <%= f.text_field :phone%>
+            </div> 
+          </div>
+        </div><!--close address section-->
+    </div>
+    <div class="narrow_page_section post_place_step2 rounded_more">
+       <h2 class="rounded_top">Details</h2> 
+       <p class="section_description">Info your potential customers will see!</p>
+       <ul id="details" class="narrow_page_section_content rounded_more">
+          <li>
+            <%= f.label :property_id, "Property Type" %>
+            <%= select_tag 'room[property_id]', options_for_select(Property.all.collect {|s| [s.name, s.id]})%>
+          </li>
+          <li>
+            <%= f.label :event_id, "Allowed Events" %>
+            <%= select_tag 'room[event_id][]', options_for_select(Event.all.collect {|s| [s.name, s.id]}), :multiple => true %>
+          </li>
+          <li>
+            <%= f.label :maximum_capacity %>
+            <%= f.text_field  :maximum_capacity %>
+          </li>
+          <li>
+            <%= f.label :title %>
+            <%= f.text_field  :title%>
+          </li>
+          <li>
+            <%= f.label :description %>
+            <%= f.text_field  :description %>
+          </li>
+          <li>
+            <%= f.label :cost %>
+            <%= f.text_field  :cost%>
+          </li>
+       </ul>
+    </div>
+  <%= f.error_messages %>
+  <p style="float: right;"><%= f.submit %></p>
+  </div>
+</div>
+    </div>
+  <% end %>
+  </div>
