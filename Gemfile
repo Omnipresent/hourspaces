@@ -7,4 +7,5 @@ gem 'nifty-generators'
 gem 'pg'
 gem 'authlogic'
 gem 'jquery-rails'
+gem 'authlogic'
 gem "mocha", :group => :test

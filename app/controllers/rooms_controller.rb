@@ -1,27 +1,38 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
+    @rooms = Room.search(params[:search])
   end
 
   def show
     @room = Room.find(params[:id])
   end
+  def search_home
+    
+  end
 
   def new
+    session[:room] = nil
     @room = Room.new
   end
 
   def create
     @room = Room.new(params[:room])
-    print  @room.cost
-    if @room.save
-      redirect_to @room, :notice => "Successfully created room."
+    session[:room] = @room
+    if current_user
+      @room.email = current_user.email
+    end
+    if @room.valid? && current_user
+      @room.save
+      render :action => 'show', :notice=>"Successfully added "
+    elsif @room.valid? && !current_user.present?
+      redirect_to sign_up_path
     else
       render :action => 'new'
     end
   end
 
   def edit
+    print "\n OMGZZZ came here"
     @room = Room.find(params[:id])
   end
 

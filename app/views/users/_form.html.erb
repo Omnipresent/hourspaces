@@ -1,0 +1,52 @@
+<% if session[:room].present? %>
+<div id="step2message">
+  <p>Sign in to start receiving reservation requests for your place titled &ldquo;<%= session[:room].title %>&rdquo;</p>
+</div>
+<% end %>
+
+<div id="createaccount">
+  <h2>Create a free account</h2><br>
+  <span class="login_promp">Sign in using facebook</span>
+  <div style="padding-top:5px;height:20px;">
+    facebook login goes here
+  </div>
+  <hr class="login_separator_bar"</hr>
+  <br><br>
+    <span class="login_promp">Or standard sign up:</span>
+    <div class="group">
+      <div class="wide_box">
+        <div class="inner">
+          <%= form_for @user do |f| %>
+      <%= f.error_messages %>
+          <table>
+            <tr>
+              <td class="label"><%=f.label :firstname  %></td>
+              <td><%= f.text_field :firstname %></td>
+            </tr>
+            <tr>
+              <td class="label"><%=f.label :lastname%></td>
+              <td><%= f.text_field :lastname%></td>
+            </tr>
+            <tr>
+              <td class="label"><%=f.label :email%></td>
+              <td><%= f.text_field :email%></td>
+            </tr>
+            <tr>
+              <td class="label"><%=f.label :password%></td>
+              <td><%= f.password_field:password%></td>
+            </tr>
+            <tr>
+              <td class="label"><%=f.label :password_confirmation%></td>
+              <td><%= f.password_field:password_confirmation%></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+      <p><%= f.submit %></p>
+      <% end %>
+</div>
+
+
+
+

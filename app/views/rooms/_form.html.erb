@@ -21,10 +21,12 @@
             </div>
           </div>
           <div id="contact_info_section" class="get_started_description">
+            <%if current_user == nil%>
             <div class="contact_info_section_fields">
               <%= f.label :email, "Email Address:" %>
               <%= f.text_field :email%>
             </div> 
+            <%end%>
             <div class="contact_info_section_fields">
               <%= f.label :phone, "Phone number:" %>
               <%= f.text_field :phone%>
@@ -42,7 +44,7 @@
           </li>
           <li>
             <%= f.label :event_id, "Allowed Events" %>
-            <%= select_tag 'room[event_id][]', options_for_select(Event.all.collect {|s| [s.name, s.id]}), :multiple => true %>
+            <%= select_tag 'room[event_ids][]', options_for_select(Event.all.collect {|s| [s.name, s.id]}), :multiple => true %>
           </li>
           <li>
             <%= f.label :maximum_capacity %>
@@ -50,11 +52,11 @@
           </li>
           <li>
             <%= f.label :title %>
-            <%= f.text_field  :title%>
+            <%= f.text_field :title%>
           </li>
           <li>
             <%= f.label :description %>
-            <%= f.text_field  :description %>
+            <%= f.text_area :description, :cols=>40, :rows=>198 %>
           </li>
           <li>
             <%= f.label :cost %>

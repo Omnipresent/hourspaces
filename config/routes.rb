@@ -1,9 +1,19 @@
 Hourspaces::Application.routes.draw do
+
+  match "login" => "user_sessions#new", :as => :login
+  match "logout" => "user_sessions#destroy", :as => :logout
+  match "editprofile" => "user#edit", :as => :editprofile
+  match "sign_up" => "users#new", :as => :sign_up
+  resources :user_sessions
+
+  resources :users
+
   resources :events
 
   resources :properties
 
   resources :rooms
+  root :to => 'rooms#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

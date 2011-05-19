@@ -1,24 +1,91 @@
-<% title "Room" %>
+<div id="rooms" class="rounded_top">
+  <div id="room">
+    <div id="the_roof">
+      <div id="back_to_search_container">
+        <a id="back_to_search_link" href="#">View Nearby Properties</a>
+      </div>
+      <div id="room_snapshot">
+        <h1><%=@room.title%></h1>
+        <h3><%=@room.property.name unless @room.property == nil%> - {<%=@room.allowedevents%>} </h3> - 
+        <span id="display_address"><%=@room.fulladdress%></span>
+      </div>
+      <div id="action_buttons">0 reviews</div>
+      <div class="clear"></div>
+      <div id="left_column">
+        <div id="main_content" class="box">
+          <div class="middle">
+            <ul id="description_details">
+              <li style="padding:0 0 8px 10px; font-size:14px;">Details</li>
+              <li class="alt">
+                <span class="property">Email</span>
+                <span class="value"><%=@room.email%></span>
+              </li>
+              <li>
+                <span class="property">Phone</span>
+                <span class="value"><%=@room.phone%></span>
+              </li>
+              <li>
+                <span class="property">Property Type</span>
+                <span class="value"><%=@room.property.name unless @room.property == nil%></span>
+              </li>
+              <li>
+                <span class="property">Allowed Events</span>
+                <span class="value"><%=@room.property.name unless @room.property == nil%></span>
+              </li>
+              <li class="alt">
+                <span class="property">Maximum Capacity</span>
+                <span class="value"><%=@room.maximum_capacity%></span>
+              </li>
+              <li>
+                <span class="property">Title</span>
+                <span class="value"><%=@room.title%></span>
+              </li>
+              <li class="alt">
+                <span class="property">Description</span>
+                <span class="value"><%=@room.description%></span>
+              </li>
+            <ul>
+          </div>
+        </div>
+      </div>
+      <div id="right_column">
+        <div id="book_it" class="box">
+          <div class="middle">
+             <div id="book_it_default" class="rounded">
+               <div id="pricing" class="book_it_section">
+                <p style="width:253px; float: left">From</p>
+                <h2 id="price_amount">$<%=@room.cost%></h2>
+                <select id="payment_period" name="payment_period">
+                  <option value="per_hour">Per hour</option> 
+                  <option value="per_day">Per day</option> 
+                  <option value="per_week">Per week</option> 
+                </select>
+                <div class="clear"></div>
+               </div>
+               <div class="dates">
+                <div class="date_section">
+                  <label>Check in</label>
+                  <input type="text" value="mm/dd/yyyy"/>
+                </div>
+                <div class="date_section">
+                  <label>Check out</label>
+                  <input type="text" value="mm/dd/yyyy"/>
+                </div>
+                <div class="num_guests_section">
+                  <label>Guests</label>
+                  <select>
+                    <% (1..10).each do |i| %>
+                      <option value="#{i}"><%= i %></option>
+                    <% end %>
+                  </select>
+                </div>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Fulladdress:</strong>
-  <%= @room.fulladdress %>
-</p>
-<p>
-  <strong>Property:</strong>
-  <%= @room.property_id %>
-</p>
-<p>
-  <strong>Event:</strong>
-  <%= @room.event_id %>
-</p>
-<p>
-  <strong>Maximum Capacity:</strong>
-  <%= @room.maximum_capacity %>
-</p>
 
-<p>
-  <%= link_to "Edit", edit_room_path(@room) %> |
-  <%= link_to "Destroy", @room, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", rooms_path %>
-</p>

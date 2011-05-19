@@ -16,8 +16,13 @@
       </a> 
       <div id="tagline">&nbsp;   </div>
       <ul id="top-menu">
-       <li class="first"><a href="#">Sign up</a></li>
-       <li><a href="#">Sign in</a></li>
+       <% if current_user %>
+       <li class="first"><%= link_to "Edit Profile", edit_user_path(:current) %></li>
+       <li><%= link_to "Logout", logout_path%></li>
+       <% else %> 
+         <li class="first"><%=link_to "Sign Up", sign_up_path%></li>
+         <li><a href="/login">Sign in</a></li>
+      <%end%>
        <li><a href="#">About</a></li>
        <li><a href="#">Blog</a></li>
        <li><a href="#"></a></li>

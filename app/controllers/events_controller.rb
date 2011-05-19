@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(params[:event])
+    print params[:event].to_yaml
     if @event.save
       redirect_to @event, :notice => "Successfully created event."
     else

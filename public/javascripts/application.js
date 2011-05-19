@@ -31,6 +31,9 @@ function initialize(){
 		
 $(document).ready(function() { 
          
+  $('#location').click(function() {
+      $(this).val('');
+    });
   initialize();
 				  
   $(function() {

@@ -132,7 +132,7 @@ background: none repeat scroll 0 0 #F6F6F6;
 }
 #map_container {
   margin-top: 13px;
-overflow: hidden;
+  overflow: hidden;
 }
 #map_canvas {
   float: right;
@@ -164,6 +164,7 @@ padding: 13px 20px;
 
 .rounded_most {
   -moz-border-radius: 20px 20px 20px 20px;
+  -webkit-border-radius: 20px 20px 20px 20px;
 }
 
 #post_a_place {
@@ -182,7 +183,6 @@ margin: 3px 0;
 width: 150px;
 }
 #post_a_place .tall_label {
-margin: 8px 0px 0 15px;
 }
 #post_a_place .address{
   width: 412px;
@@ -208,10 +208,12 @@ margin: 8px 0px 0 15px;
 }
 .rounded_more {
   -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
 }
 
 .drop_shadow_standard {
   -moz-box-shadow: 0 2px 10px #AAAAAA;
+  -webkit-box-shadow: 0 2px 10px #AAAAAA;
 }
 
 #post_a_place_header {
@@ -242,6 +244,9 @@ width: 385px;
 .rounded_top {
   -moz-border-radius-topleft: 10px;
   -moz-border-radius-topright: 10px;
+  -webkit-border-radius-topleft: 10px;
+  -webkit-border-radius-topright: 10px;
+}
 }
 
 #how_it_works {
@@ -274,9 +279,11 @@ width: 572px;}
 padding: 10px;
   -moz-border-radius-bottomleft: 10px;
   -moz-border-radius-bottomright: 10px;
+  -webkit-border-radius-bottomleft: 10px;
+  -webkit-border-radius-bottomright: 10px;
 }
 
-#errorExplanation{
+.error_messages{
     clear: both;
     font-size: 13px;
     font-weight: bold;
@@ -284,11 +291,10 @@ padding: 10px;
     padding: 10px 0 0;
     width: 350px;
 }
-#errorExplanation h2 {
+.error_messages p {
   margin-bottom: 10px;
-  font-size: 1.25em; 
 }
-#errorExplanation li {
+.error_messages li {
 font-weight: normal !important;
 list-style:   circle outside none;
 font-size: 13px;
@@ -301,9 +307,504 @@ color: #E51E18 !important;
         #post_a_place ul#details li{padding:5px 0 15px 1px; margin:0;}
     #post_a_place label {width:150px; display:block; float:left; color:#383831; margin: 3px 0;}
     #post_a_place #exact_address_prompt label {width: auto; float: none; display: inline;}
-	#post_a_place .tall_label {margin: 8px 0;}
+	#post_a_place .tall_label {margin: 8px 0 0 15px;}
     #post_a_place #details .label_with_description { float: left; width: 150px; padding: 0; margin: 0; }
     #post_a_place #details .label_with_description .detail_description { color: #999; font-size: 11px; width: 125px; }
     #post_a_place ul#location li .label_with_description label, ul#details li .label_with_description label{ float: none; }
     #post_a_place select{float:left;}
-    #post_a_place textarea{float:left;}
+    #post_a_place textarea{float:left;height: 200px;}
+
+#room #right_column #book_it #book_it_default div.book_it_section {
+    border-bottom: 1px dotted #D1D1D1;
+    padding: 5px 0;
+}#book_it_form div.date_section {
+    float: left;
+    margin-right: 5px;
+    width: 86px;
+}#book_it_form div.num_guests_section {
+    float: left;
+    width: 50px;
+}#book_it_form select {
+    display: block;
+    overflow: hidden;
+    width: 50px;
+}
+#step2message
+{
+padding: 10px;
+background-color: #FFFDCE;
+border: 1px solid #FFFDCE;
+font-weight: bold;
+font-size: 18px;
+text-align: center;
+margin: 10px 0 30px;
+}
+#back_to_search_link {
+    background: url("http://s9.muscache.com/images/page3/v3/back_to_search_arrow.png") no-repeat scroll 23px 3px transparent;
+    display: block;
+    float: left;
+    font-size: 14px;
+    height: 17px;
+    line-height: 16px;
+    padding: 0 0 3px 43px;
+}
+#createaccount h2 {
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 1px solid #CCCCCC;
+  margin-bottom: 10px;
+}
+.login_promp {
+  font-size: 18px;
+  font-weight: bold;
+}.login_separator_bar {
+    background-color: #EEEEEE;
+    border: medium none;
+    color: #EEEEEE;
+    float: left;
+    height: 2px;
+    width: 400px;
+}
+.group {
+    background: url("http://s9.muscache.com/images/modules/messaging_tile_gray.png") repeat scroll 0 0 transparent;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 640px;
+}
+.wide_box {
+background: url("http://s9.muscache.com/images/modules/page4-white-638.png") no-repeat scroll left bottom transparent;
+    padding-bottom: 8px;
+}
+.wide_box .inner {
+background: url("http://s9.muscache.com/images/modules/page4-white-638.png") no-repeat scroll 0 0 transparent;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-top: 10px;
+}#createaccount td.label {
+    font-size: 13px;
+    font-weight: bold;
+    width: 170px;
+}#createaccount td {
+    height: 40px;
+    vertical-align: middle;
+}
+/*showroom*/
+#rooms {
+background: none repeat scroll 0 0 #F2F2EB;
+padding-top: 10px;
+width: 980px;
+height: 700px;
+}
+#room {
+  color: #2F2F2F;
+position: relative;
+width: 980px;
+}
+#room #the_roof {
+  float: left;
+  width: 980px;
+}
+#back_to_search_container {
+  display: block;
+overflow:hidden;
+width:980px;
+}
+#room #the_roof #room_snapshot {
+    float: left;
+    width: 680px;
+}#room #the_roof #room_snapshot h2, #room #the_roof #room_snapshot h1 {
+    color: #333333;
+    float: left;
+    font-size: 30px;
+    font-weight: bold;
+    height: 36px;
+    margin-top: -3px;
+    overflow: hidden;
+    padding: 0 0 0 21px;
+    width: 659px;
+}#room #the_roof #room_snapshot h3 {
+    color: #6E6965;
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 0 4px 0 23px;
+}#room #the_roof #action_buttons {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    width: 295px;
+}#room #the_roof #action_buttons ul {
+    float: right;
+    padding: 0;
+}#room #the_roof #action_buttons ul li {
+    cursor: pointer;
+    float: left;
+    height: 40px;
+    margin-left: 12px;
+    margin-top: 10px;
+    text-align: center;
+    width: 60px;
+}#room #left_column {
+    float: left;
+    margin-left: 2px;
+    padding: 0 0 10px;
+    width: 681px;
+}#room #left_column #main_content, #room #left_column #details, #room #left_column #reputation {
+    float: left;
+    margin-bottom: 0;
+    padding: 0;
+    width: 681px;
+}  #room .box .middle {
+    clear: both;
+    height: 450px;
+    padding: 10px;
+    margin: 10px;
+    background: #fff;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.2); }
+  #room #right_column .box .middle {
+    margin-bottom: 20px; }
+#room #right_column #book_it #book_it_default select#payment_period {
+    float: left;
+    font-size: 13px;
+    margin-top: 10px;
+    width: 93px;
+}
+
+    
+#display_address {
+    color: #A3B119;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 0;
+}div.clear {
+    clear: both;
+    float: none;
+    font-size: 0;
+    height: 1px;
+    line-height: 0;
+    overflow: hidden;
+    width: 1px;
+}
+#room #right_column #book_it #book_it_default {
+    background: -moz-linear-gradient(center top , #FEF7A7, white 60%) repeat scroll 0 0 transparent;
+    min-height: 150px;
+    padding: 2px 10px;
+}
+#room #right_column {
+    float: left;
+    padding: 0;
+    width: 295px;
+}/** Book It **/
+#room #right_column #book_it #book_it_default {
+  min-height: 150px;
+  background: white;
+  background: -webkit-gradient(linear, center top, center bottom, from(#fef7a7), color-stop(60%, white));
+  background: -moz-linear-gradient(top, #fef7a7, white 60%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fef7a7', endColorstr='white');
+  padding: 2px 10px; }
+
+#room #right_column #book_it #book_it_default h2#price_amount {
+  font-size: 40px;
+  font-weight: bold;
+  color: #33332f;
+  width: 140px;
+  float: left; }
+
+#room #right_column #book_it #book_it_default select#payment_period {
+  width: 93px;
+  float: left;
+  font-size: 13px;
+  margin-top: 10px; }
+
+#room #right_column #book_it #book_it_default div.book_it_section {
+  border-bottom: 1px dotted #d1d1d1;
+  padding: 5px 0; }
+
+#room #right_column #book_it #book_it_default div#book_it_status {
+  border: none !important;
+  padding-top: 10px;
+  position: relative; }
+
+#room #right_column #book_it #book_it_status #book_it_enabled {
+  background: transparent; }
+
+#room #right_column #book_it #book_it_status #book_it_disabled p#book_it_disabled_message {
+  text-align: center;
+  font-weight: bold; }
+
+div.date_section {
+  width: 86px;
+  float: left;
+  margin-right: 5px; }
+
+div.date_section input {
+  width: 80px; }
+
+div.num_guests_section {
+  width: 50px;
+  float: left; }
+
+jselect {
+  width: 50px;
+  display: block;
+  overflow: hidden; }
+
+#book_it_status #subtotal_area {
+  width: 233px;
+  float: left; }
+
+#book_it_status #subtotal_area p {
+  font-size: 12px;
+  color: #666666;
+  margin-bottom: -5px; }
+
+#book_it_status #subtotal_area h2#subtotal {
+  font-size: 30px;
+  color: #cccccc;
+  font-weight: bold;
+  padding-top: 5px; }
+
+#book_it_status input#book_it_button {
+  width: 233px !important;
+  margin: 6px 0 0 0;
+  text-shadow: -1px -1px 1px #839a35; }
+
+#book_it_status input#instant_book_it_button {
+  width: 233px !important;
+  margin: 6px 0 0 0;
+  text-shadow: -1px -1px 1px #839a35; }
+
+#book_it_status input[disabled]#book_it_button {
+  text-shadow: -1px -1px 1px #666666; }
+
+#book_it_status input[disabled]#instant_book_it_button {
+  text-shadow: -1px -1px 1px #666666; }
+
+#book_it_status .button_shadow {
+  -moz-box-shadow: 0 0 6px #B9B9B9;
+  -webkit-box-shadow: 0 0 6px #B9B9B9;
+  box-shadow: 0 0 6px #B9B9B9; }
+ul#description_details {
+    border: 1px solid #D9D9D6;
+    float: left;
+    margin-left: 10px;
+    padding: 8px 4px;
+    width: 520px;
+}
+li.alt{
+background: none repeat scroll 0 0 #EBF7FF;
+} li span.property {
+    float: left;
+    font-weight: bold;
+    padding: 4px 0 4px 10px;
+    text-align: left;
+    text-transform: capitalize;
+    width: 210px;
+height: 45px;
+}
+ li span.value {
+    float: right;
+    padding: 4px 4px 4px 0;
+    text-align: right;
+    width: 119px;
+height: 45px;
+}
+#book_it_status #view_other_listings_button {
+  width: 233px !important; }
+
+#book_it_status .instant_book {
+  text-align: left !important;
+  padding-left: 40px !important; }
+
+#book_it_status #instant_book_arrow {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  margin-top: -8px;
+  display: block;
+  background: transparent url("/images/uiwidgets/instant_book_arrow.png") no-repeat 0 0;
+  height: 16px;
+  width: 25px; }
+
+#book_it_status .gray_arrow {
+  background-position: -25px 0 !important; }
+
+#book_it_status #instant_book_arrow:hover {
+  cursor: pointer; }
+
+#book_it_status #book_it_wrapper {
+  position: relative;
+  clear: both; }
+
+span#more_subtotal_info_arrow {
+  display: block;
+  height: 12px;
+  float: left;
+  width: 12px;
+  background: transparent url("/images/page3/v3/blue_toggle_arrows.png") no-repeat 0 0;
+  margin: 3px 3px 0 0; }
+
+span#less_subtotal_info_arrow {
+  display: block;
+  height: 12px;
+  float: left;
+  width: 12px;
+  background: transparent url("/images/page3/v3/blue_toggle_arrows.png") no-repeat -12px 0;
+  margin: 2px 3px 0 0; }
+
+#room #show_more_subtotal_info {
+  margin-left: 3px;
+  margin-bottom: -5px; }
+
+#room #subtotal_info {
+  font-size: 10px;
+  color: #666666; }
+
+
+
+  /*search home*/
+  div#home {
+    overflow: hidden;
+    padding-top: 26px;
+}#home #search_area {
+    float: left;
+    padding-top: 55px;
+    width: 980px;
+}#callout {
+    color: #000000;
+    font-size: 30pt;
+    font-weight: bold;
+    text-align: center;
+}#home p {
+    color: #777777;
+    margin: 1em 0;
+    text-align: center;
+}#home #coverage_link:link {
+    color: #0087D2;
+}#home form {
+    margin: 50px 0 0 28px;
+    text-align: left;
+    width: 430px;
+}#home #search_bar {
+    width: 430px;
+}#home #search_bar #location {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    -webkit-border-bottom-colors: none;
+    -webkit-border-image: none;
+    -webkit-border-left-colors: none;
+    -webkit-border-right-colors: none;
+    -webkit-border-top-colors: none;
+    border-bottom-right-radius: 0;
+    border-color: #C1BFA0;
+    border-style: solid;
+    border-top-right-radius: 0;
+    border-width: 2px 0 2px 2px;
+    box-shadow: 0 0 2px #C1BFA0 inset;
+    color: #E0007A;
+    display: block;
+    float: left;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: bold;
+    height: 28px;
+    line-height: 24px;
+    padding: 6px 0 4px 10px;
+    width: 298px;
+}
+.rounded_left {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#home #search_bar #submit_location {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    width: 120px;
+}
+.v3_fixed_width {
+    padding: 5px 0 !important;
+}
+.v3_button {
+    background: url("http://s9.muscache.com/images/uiwidgets/v3_button_bgs_001.png") repeat-x scroll 0 0 transparent;
+    border: 1px solid #85AA40;
+    border-radius: 7px 7px 7px 7px;
+    color: #FFFFFF !important;
+    cursor: pointer;
+    font-family: Arial,Helvetica,Tahoma;
+    font-size: 18px;
+    font-weight: bold;
+    height: 42px;
+    text-align: center;
+    text-shadow: 0 -1px 1px #797979;
+}
+#results {
+  margin-top: 35px;
+width: 743px;
+overflow:hidden;
+}.search_result {
+    border-bottom: 1px solid #D8D8D8;
+    padding: 10px 0 0;
+    position: relative;
+height: 80px;
+}.room_details {
+    float: left;
+    padding: 1px 0 0;
+    width: 428px;
+}.room_title {
+    font-size: 20px;
+    font-weight: bold;
+    height: 22px;
+    letter-spacing: -0.6px;
+    line-height: 22px;
+}.room_title a.name {
+    max-width: 368px;
+    overflow: hidden;
+    white-space: nowrap;
+}.address, .address_max_width {
+    color: #B0B2B4;
+}
+.address, .distance, .address_max_width {
+    float: left;
+    font-size: 13px;
+}.price {
+    float: right;
+    margin-top: -4px;
+    width: 128px;
+}
+v3_search.css (line 1519)
+#v3_search, #search_header, #search_body, .search_result, .price, .room_title, #search_filters, #results {
+    overflow: hidden;
+}.price_data {
+    color: #3D3D3D;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    height: 44px;
+    letter-spacing: -0.5px;
+    line-height: 44px;
+    padding: 2px 10px 0 0;
+}.currency_with_sup {
+    float: right;
+}.price_data sup {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 32px;
+    vertical-align: text-top;
+}.price_modifier {
+    color: #BBBBBB;
+    float: right;
+    font-size: 10px;
+    margin-top: -5px;
+    padding-right: 14px;
+    text-align: right;
+    width: 103px;
+}
