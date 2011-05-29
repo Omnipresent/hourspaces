@@ -44,7 +44,10 @@
           </li>
           <li>
             <%= f.label :event_id, "Allowed Events" %>
-            <%= select_tag 'room[event_ids][]', options_for_select(Event.all.collect {|s| [s.name, s.id]}), :multiple => true %>
+            <%= f.text_field :event_tokens%>
+          </li>
+          <li>
+            <div id="msgs"></div>
           </li>
           <li>
             <%= f.label :maximum_capacity %>

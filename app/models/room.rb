@@ -3,6 +3,10 @@ class Room < ActiveRecord::Base
   belongs_to :user
   has_many :allowedevents
   has_many :events, :through => :allowedevents
+  attr_reader :event_tokens 
+  def event_tokens=(ids)
+    self.event_ids= ids.split(",")
+  end
  
   validates_format_of :email, :with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i
   validates_presence_of :fulladdress, :title, :description, :email, :cost

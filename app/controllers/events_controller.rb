@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = Event.where("upper(name) like ?", "%#{params[:q].upcase}%")
+    respond_to do |format|
+      format.html
+      format.json {render :json => @events.map(&:attributes)}
+    end
   end
 
   def show

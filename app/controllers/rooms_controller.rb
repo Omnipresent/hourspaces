@@ -17,6 +17,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(params[:room])
+    print "ids!!!" + session[:room][:event_ids]
     session[:room] = @room
     if current_user
       @room.email = current_user.email

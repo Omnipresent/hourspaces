@@ -28,9 +28,89 @@ function initialize(){
   });
 				
 }
-		
+
+
+
+
+function setSelectionRange(input, selectionStart, selectionEnd) {
+    if (input.setSelectionRange) {
+        input.focus();
+        input.setSelectionRange(selectionStart, selectionEnd);
+    }
+    else if (input.createTextRange) {
+        var range = input.createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', selectionEnd);
+        range.moveStart('character', selectionStart);
+        range.select();
+    }
+}
+
+function addMessage(msg){
+    $('#msgs').text(msg+"  ");
+}
+    function split( val ) {
+      return val.split( /,\s*/ );
+    }
+    function extractLast( term ) {
+      return split( term ).pop();
+    }
+
 $(document).ready(function() { 
-         
+ $("#room_event_tokens")
+      .bind( "keydown", function( event ) {
+				if ( event.keyCode === $.ui.keyCode.TAB &&
+						$( this ).data( "autocomplete" ).menu.active ) {
+					event.preventDefault();
+				}
+			})
+      .autocomplete({
+
+        // Set the source option to a function that performs the search,
+        // and calls a response function with the matched entries.
+        source: function(req, responseFn) {
+            //addMessage("search on: '" + req.term + "'<br/>");
+
+
+         // response( $.ui.autocomplete.filter(
+          //  availableTags, extractLast( request.term ) ) );  
+           // responseFn( $.ui.autocomplete.filter(
+            //wordlist, extractLast( req.term ) ) );
+//$.getJSON( "/events.json", {
+//						term: extractLast( req.term )
+//					}, responseFn);          
+				$.ajax({
+					url: "/events.json",
+					dataType: "json",
+					data: {
+						q: extractLast(req.term)
+					},
+					success: function( data ) {
+						responseFn( $.map( data, function( item ) {
+							return {
+								label: item.name, //+ (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
+								value: item.name
+							}
+						}));
+					}
+				});
+        },
+      autoFocus: true,
+      select: function( event, ui ) {
+          var terms = split( this.value );
+          // remove the current input
+          terms.pop();
+        // add the selected item
+          terms.push( ui.item.value );
+          // add placeholder to get the comma-and-space at the end
+          terms.push( "" );
+          this.value = terms.join( ", " );
+        return false;
+        }      
+    });
+
+
+
   $('#location').click(function() {
       $(this).val('');
     });
@@ -38,7 +118,7 @@ $(document).ready(function() {
 				  
   $(function() {
     $("#address").autocomplete({
-      //This bit uses the geocoder to fetch address values
+      //Th:is bit uses the geocoder to fetch address values
       source: function(request, response) {
         geocoder.geocode( {'address': request.term }, function(results, status) {
           response($.map(results, function(item) {
