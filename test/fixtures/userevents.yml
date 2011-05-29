@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  user_id: 1
+  room_id: 1
+  approved_by: 1
+  approved: false
+
+two:
+  name: MyString
+  user_id: 1
+  room_id: 1
+  approved_by: 1
+  approved: false

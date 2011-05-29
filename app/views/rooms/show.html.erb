@@ -6,7 +6,7 @@
       </div>
       <div id="room_snapshot">
         <h1><%=@room.title%></h1>
-        <h3><%=@room.property.name unless @room.property == nil%> - {<%=@room.allowedevents%>} </h3> - 
+        <h3><%=@room.property.name unless @room.property == nil%> - {<%=@eventstring%>} </h3> - 
         <span id="display_address"><%=@room.fulladdress%></span>
       </div>
       <div id="action_buttons">0 reviews</div>
@@ -30,7 +30,7 @@
               </li>
               <li>
                 <span class="property">Allowed Events</span>
-                <span class="value"><%=@room.property.name unless @room.property == nil%></span>
+                <span class="value"><%=@eventstring%></span>
               </li>
               <li class="alt">
                 <span class="property">Maximum Capacity</span>

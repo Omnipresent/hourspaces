@@ -3,11 +3,28 @@ class Room < ActiveRecord::Base
   belongs_to :user
   has_many :allowedevents
   has_many :events, :through => :allowedevents
-  attr_reader :event_tokens 
+  attr_reader :event_tokens, :user_events 
+
+
   def event_tokens=(ids)
-    self.event_ids= ids.split(",")
+    events = ids.split(',')
+    allowed_events = []
+    userevents = []
+    events.each do |i|
+      i = i.strip
+      events = Event.select(:id).where("upper(name) = ?", i.upcase);
+      event = (events.blank? ? nil : events.first)
+      if event.present?
+        allowed_events << event[:id]
+      else
+        userevents << i
+      end
+    end
+    self.event_ids = allowed_events
+#self.user_events(userevents)
   end
  
+
   validates_format_of :email, :with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i
   validates_presence_of :fulladdress, :title, :description, :email, :cost
   validates_numericality_of :cost, :gt => 10, :message => "must be greater than 10"

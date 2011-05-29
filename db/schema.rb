@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110528134657) do
+ActiveRecord::Schema.define(:version => 20110529155254) do
 
   create_table "allowedevents", :force => true do |t|
     t.integer  "room_id"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(:version => 20110528134657) do
   create_table "user_sessions", :force => true do |t|
     t.string   "username"
     t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "userevents", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.integer  "approved_by"
+    t.boolean  "approved"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

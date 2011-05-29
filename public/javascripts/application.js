@@ -88,7 +88,7 @@ $(document).ready(function() {
 					success: function( data ) {
 						responseFn( $.map( data, function( item ) {
 							return {
-								label: item.name, //+ (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
+								label: item.name +" "+ "("+ item.count + ")", //+ (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
 								value: item.name
 							}
 						}));

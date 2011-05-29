@@ -20,24 +20,3 @@
   </div>
 </div>
 
-<ul id="results">  
-  <% for room in @rooms %>
-  <li class="search_result">
-     <div id="room_details">
-      <h2 class="room_title">
-        <a href="/rooms/<%=room.id%>" class="name"><%=room.title%></a>
-      </h2>
-      <p class="address"><%=room.fulladdress%></p>
-     </div>
-     <div class="price">
-      <div class="price_data">
-        <sup class="currency_if_required"></sup>
-        <div class="currency_with_sup"><sup>$</sup><%=room.cost%></div>
-      </div>                
-      <div class="price_modifier">                    
-        Per hour
-      </div>           
-     </div>
-  </li>
-  <%end%>
-</ul>

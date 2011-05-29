@@ -750,6 +750,7 @@ span#less_subtotal_info_arrow {
   margin-top: 35px;
 width: 743px;
 overflow:hidden;
+float:left;
 }.search_result {
     border-bottom: 1px solid #D8D8D8;
     padding: 10px 0 0;
@@ -808,3 +809,11 @@ v3_search.css (line 1519)
     text-align: right;
     width: 103px;
 }
+.search_filters_events
+{
+  float: left;
+  margin-top: 65px;
+}
+.search_filters_events li
+{
+padding: 10px;

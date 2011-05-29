@@ -1,10 +1,24 @@
 class RoomsController < ApplicationController
   def index
     @rooms = Room.search(params[:search])
+    @allowed = Allowedevent.select(:event_id).where("room_id in (?)", Room.select(:id).where("upper(fulladdress) like ?", "%#{params[:search].upcase}%"))
+    @events = []
+    @allowed.each do |i|
+      @events<<i.event_id
+    end
+    @events = Event.where("id in (?)", @events)
+    if (!params[:search].blank?)
+    render "search_home"
+    end
   end
 
   def show
     @room = Room.find(params[:id])
+    @event = []
+    @room.events.each do |i|
+      @event << i.name
+    end
+    @eventstring = @event.join(",")
   end
   def search_home
     
@@ -17,15 +31,12 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(params[:room])
-    print "ids!!!" + session[:room][:event_ids]
-    session[:room] = @room
-    if current_user
-      @room.email = current_user.email
-    end
+    @room.email = current_user.email if current_user
     if @room.valid? && current_user
       @room.save
       render :action => 'show', :notice=>"Successfully added "
     elsif @room.valid? && !current_user.present?
+      session[:room] = @room
       redirect_to sign_up_path
     else
       render :action => 'new'

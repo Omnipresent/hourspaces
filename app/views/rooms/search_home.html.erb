@@ -1,11 +1,38 @@
+
 <div id="home">
-  <div id="search_area">
-    <div id="callout">
-      File a place to rent
-    </div>
-    <p>
-        <a id="coverage_link" href="#">Rent from XXX places in XXX cities</a>
-    </p>
-    
-  </div>
+      <div id="search_bar">
+        <%if params[:search]==nil%>
+          <%@value = "Where do you want to rent?"%>
+        <%else%> 
+          <%@value = params[:search]%>
+        <% end %>
+        <%=text_field_tag :search, @value, :id=>"location", :class=>"rounded_left"%>
+        <%= submit_tag 'Search', :name => nil, :id=> "submit_location", :class=>"v3_button v3_fixed_width"%>
+      </div>
 </div>
+<ul id="results">  
+  <% for room in @rooms %>
+  <li class="search_result">
+     <div id="room_details">
+      <h2 class="room_title">
+        <a href="/rooms/<%=room.id%>" class="name"><%=room.title%></a>
+      </h2>
+      <p class="address"><%=room.fulladdress%></p>
+     </div>
+     <div class="price">
+      <div class="price_data">
+        <sup class="currency_if_required"></sup>
+        <div class="currency_with_sup"><sup>$</sup><%=room.cost%></div>
+      </div>                
+      <div class="price_modifier">                    
+        Per hour
+      </div>           
+     </div>
+  </li>
+  <%end%>
+</ul>
+<ul class="search_filters_events">
+<%for event in @events%>
+  <li><input type="checkbox" value="<%=event.name%>" name="room_types" id="<%=event.name%>"><%=event.name%></li> 
+  <%end%>
+</ul>
