@@ -1,8 +1,49 @@
-<% title "Edit Room" %>
+<div class="narrow_page_bg rounded_most">
+  <%= form_for @room do |f| %>
+    <div id="post_a_place" class="rounded_more drop_shadow_standard">
+      <div id="post_a_place_header" class="rounded_top">
+        <a id="how_it_works" href="#" target="_blank"></a>
+        <h1>List your place</h1>
+        <h2>HourSpaces lets you rent your space for an hour and make money. <a target="_blank" href="#">Learn More</a></h2>
+      </div>
 
-<%= render 'form' %>
-
-<p>
-  <%= link_to "Show", @room %> |
-  <%= link_to "View All", rooms_path %>
-</p>
+    <div class="narrow_page_section post_place_step2 rounded_more">
+       <h2 class="rounded_top">Details</h2> 
+       <p class="section_description">Info your potential customers will see!</p>
+       <ul id="details" class="narrow_page_section_content rounded_more">
+          <li>
+            <%= f.label :property_id, "Property Type" %>
+            <%= select_tag 'room[property_id]', options_for_select(Property.all.collect {|s| [s.name, s.id]})%>
+          </li>
+          <li>
+            <%= f.label :event_id, "Allowed Events" %>
+            <%= f.text_field :event_tokens, "data-pre" => @room.event_ids%>
+          </li>
+          <li>
+            <div id="msgs"></div>
+          </li>
+          <li>
+            <%= f.label :maximum_capacity %>
+            <%= f.text_field  :maximum_capacity %>
+          </li>
+          <li>
+            <%= f.label :title %>
+            <%= f.text_field :title%>
+          </li>
+          <li>
+            <%= f.label :description %>
+            <%= f.text_area :description, :cols=>40, :rows=>198 %>
+          </li>
+          <li>
+            <%= f.label :cost %>
+            <%= f.text_field  :cost%>
+          </li>
+       </ul>
+    </div>
+  <%= f.error_messages %>
+  <p style="float: right;"><%= f.submit %></p>
+  </div>
+</div>
+    </div>
+  <% end %>
+  </div>

@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+
+  def dashboard
+    print "user_id = " + current_user.id.to_s
+    @rooms = Room.where("user_id = ?", current_user.id)
+    print "size = " + @rooms.size.to_s
+  end
+
   def new
     if session[:room].present?
       @user = User.new

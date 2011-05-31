@@ -3,6 +3,7 @@
 // http://code.google.com/apis/maps/documentation/javascript/services.html#Geocoding
 // http://jqueryui.com/demos/autocomplete/#remote-with-cache
       
+//maps
 var geocoder;
 var map;
 var marker;
@@ -29,34 +30,64 @@ function initialize(){
 				
 }
 
-
-
-
-function setSelectionRange(input, selectionStart, selectionEnd) {
-    if (input.setSelectionRange) {
-        input.focus();
-        input.setSelectionRange(selectionStart, selectionEnd);
-    }
-    else if (input.createTextRange) {
-        var range = input.createTextRange();
-        range.collapse(true);
-        range.moveEnd('character', selectionEnd);
-        range.moveStart('character', selectionStart);
-        range.select();
-    }
-}
-
+//show autocomplete fields in div
 function addMessage(msg){
     $('#msgs').text(msg+"  ");
 }
-    function split( val ) {
-      return val.split( /,\s*/ );
+//split list
+function split( val ) {
+  return val.split( /,\s*/ );
+}
+//extract the last item
+function extractLast( term ) {
+  return split( term ).pop();
+}
+//remove element from the array
+Array.prototype.remove = function (value)
+{
+    for (var i = 0; i < this.length; )
+    {
+        if (this[i] === value)
+        {
+            this.splice(i, 1);
+        }
+        else
+        {
+           ++i;
+        }
     }
-    function extractLast( term ) {
-      return split( term ).pop();
-    }
+}
+
+
 
 $(document).ready(function() { 
+var a=[];
+$('input:checkbox').change(function() {
+  a.push($(this).val());
+  if (!$(this).is(':checked'))
+      a.remove($(this).val())
+$('#list_view_loading').show();
+var urltosend =  "/search/filters.json?firstsearch="+$("#location").val()+"&search="+a.join(",")
+   $.ajax({
+
+      url: urltosend,
+      success: function(data){
+        $("#results").children('li').each(function(){
+                $('#results li').remove();
+        });
+        $.each(data, function(i, item) {
+
+var listData = '<li class="search_result"><div id="room_details"><h2 class="room_title"><a href="/rooms/' + item.id+ '" class="name">'+item.title+
+          '</a></h2><p class="address">'+item.fulladdress+'</p> </div> <div class="price" <div class="price_data"><sup class="currency_if_required"</sup>' +
+          '<div class="currency_with_sup"><sup>$</sup>'+item.cost+'</div></div><div class="price_modifier">Per hour</div></div></li>';
+          $('#results').append(listData);
+        });
+      },complete: function(){ $('#list_view_loading').hide(); }
+   });
+});
+
+
+
  $("#room_event_tokens")
       .bind( "keydown", function( event ) {
 				if ( event.keyCode === $.ui.keyCode.TAB &&

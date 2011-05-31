@@ -1,19 +1,25 @@
 Hourspaces::Application.routes.draw do
 
+  get "search/index"
+
   match "login" => "user_sessions#new", :as => :login
   match "logout" => "user_sessions#destroy", :as => :logout
   match "editprofile" => "user#edit", :as => :editprofile
   match "sign_up" => "users#new", :as => :sign_up
+  match 'search/filters.json', :controller => 'search', :action => 'searchopts', :format => 'json'
+  match 'search', :controller => 'search', :action => 'index'
   resources :user_sessions
+  match '/dashboard', :controller => 'users', :action =>'dashboard'
 
   resources :users
 
   resources :events
 
   resources :properties
+  resources :dashboards
 
   resources :rooms
-  root :to => 'rooms#index'
+  root :to => 'search#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
