@@ -1,12 +1,9 @@
 <div id="rooms" class="rounded_top">
   <div id="room">
     <div id="the_roof">
-      <div id="back_to_search_container">
-        <a id="back_to_search_link" href="#">View Nearby Properties</a>
-      </div>
       <div id="room_snapshot">
         <h1><%=@room.title%></h1>
-        <h3><%=@room.property.name unless @room.property == nil%> - {<%=@eventstring%>} </h3> - 
+        <h3><%=@room.property.name unless @room.property == nil%> - <%=@eventstring%> </h3> - 
         <span id="display_address"><%=@room.fulladdress%></span>
       </div>
       <div id="action_buttons">0 reviews</div>
@@ -62,23 +59,6 @@
                 </select>
                 <div class="clear"></div>
                </div>
-               <div class="dates">
-                <div class="date_section">
-                  <label>Check in</label>
-                  <input type="text" value="mm/dd/yyyy"/>
-                </div>
-                <div class="date_section">
-                  <label>Check out</label>
-                  <input type="text" value="mm/dd/yyyy"/>
-                </div>
-                <div class="num_guests_section">
-                  <label>Guests</label>
-                  <select>
-                    <% (1..10).each do |i| %>
-                      <option value="#{i}"><%= i %></option>
-                    <% end %>
-                  </select>
-                </div>
                </div>
              </div>
           </div>

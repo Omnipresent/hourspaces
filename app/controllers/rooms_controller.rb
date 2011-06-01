@@ -66,13 +66,13 @@ class RoomsController < ApplicationController
   end
 
   def edit
-    print "\n OMGZZZ came here"
     @room = Room.find(params[:id])
     @event = []
     @room.events.each do |i|
      @event << i.name 
     end
     @room.event_tokens = @event.join(",")
+    @event = @event.join(", ")
   end
 
   def update

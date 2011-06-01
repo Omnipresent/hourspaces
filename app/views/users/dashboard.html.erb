@@ -1,19 +1,17 @@
 <div id="command_center">
 
 <ul id="nav">
-	<li><a href="/dashboard">Dashboard</a></li>
-	<li><a href="/inbox">Inbox</a></li>
+	<li><a href="#">Dashboard</a></li>
+	<li><a href="#">Inbox</a></li>
 	<li class="active"><a href="/rooms">Hosting</a></li>
-	<li><a href="/trips">Traveling</a></li>
-	<li><a href="/account">Account</a></li>
 </ul>
 <ul class="subnav">
-    <li class="active"><a href="/rooms">Manage Listings</a></li>
-    <li><a href="/my_listings">My Reservations</a></li>
-    <li><a href="/hosting/standbys">Standby Guests</a></li>
-    <li><a href="/hosting/promote">Promote</a></li>
-    <li><a href="/hosting/pricing">Pricing</a></li>
-    <li><a href="/hosting/policies">Policies</a></li>
+    <li class="active"><a href="/rooms">Manage Spaces</a></li>
+    <li><a href="#">Reservations</a></li>
+    <li><a href="#">Waiting Guests</a></li>
+    <li><a href="#">Promote</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#">Policies</a></li>
     <!--<li><a href="/travel_plans?p=upcoming">Upcoming Trips</a></li>-->
 </ul>
 <div class="box">
@@ -28,7 +26,6 @@
               <span class="actions">
                 <span class="action_button"><a class="icon edit" href="/rooms/<%=room.id%>/edit">Edit listing</a></span>
                 <span class="action_button"><a class="icon view" href="/rooms/<%=room.id%>">View listing</a></span>
-                <span class="action_button"><%= link_to "Destroy", room, :confirm => 'Are you sure?', :method => :delete %></span>
       <td></td>
               </span> 
             </div> <div class="clear"></div>

@@ -1,16 +1,23 @@
-<% title "New User Session" %>
-
+<div id="createaccount">
+    <div class="group">
+      <div class="wide_box">
+        <div class="inner">
 <%= form_for @user_session do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :email%><br />
-    <%= f.text_field :email%>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p><%= f.submit %></p>
+  <table>
+    <tr>
+      <td class="label"><%=f.label :email %></td>
+      <td><%= f.text_field :email%></td>
+    </tr>
+    <tr>
+      <td class="label"><%=f.label :password %></td>
+      <td><%= f.password_field :password %></td>
+    </tr>
+  </table>
+        </div>
+      </div>
+    </div>
+  <p><%= f.submit "Log In" %></p>
 <% end %>
-
+</div>
 

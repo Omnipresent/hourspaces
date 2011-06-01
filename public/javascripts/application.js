@@ -87,7 +87,7 @@ var listData = '<li class="search_result"><div id="room_details"><h2 class="room
 });
 
 
-
+$("#room_event_tokens").val($("#room_event_tokens").data("pre"));
  $("#room_event_tokens")
       .bind( "keydown", function( event ) {
 				if ( event.keyCode === $.ui.keyCode.TAB &&

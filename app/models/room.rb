@@ -3,28 +3,28 @@ class Room < ActiveRecord::Base
   belongs_to :user
   has_many :allowedevents
   has_many :events, :through => :allowedevents
-# after_save :add_new_events_to_userevents
-  attr_reader :event_tokens, :user_events 
-#  attr_accessible :user_events #not real column in table
-#  attr_accessible :fulladdress, :title, :description, :cost, :email, :maximum_capacity, :phone, :user_id, :property_id
-#attr_accessible :user_events #not real column in table
-#  attr_accessible :fulladdress, :title, :description, :cost, :email, :maximum_capacity, :phone, :user_id, :property_id
-#  def add_new_events_to_userevents
-#    print "total new events:" + self.user_events.size if user_events.present?
-#    if self.user_events.present?
-#    self.user_events.each do |i| 
-#      u = Userevent.new
-#      u.name = i
-#      u.approved = false
-#      u.room_id = self.id
-#      u.user_id = self.user_id
-#      u.save
-#    end
-#    end
-#  end
+  after_save :add_new_events_to_userevents
+  attr_reader :event_tokens 
+  attr_accessible :event_tokens, :fulladdress, :title, :description, :cost, :email, :maximum_capacity, :phone, :user_id, :property_id
+
+  attr_accessor :user_events
+
+  def add_new_events_to_userevents
+    print "total new events:" + self.user_events.size.to_s if user_events.present?
+    if self.user_events.present?
+    self.user_events.each do |i| 
+     u = Userevent.new
+      u.name = i
+      u.approved = false
+      u.room_id = self.id
+      u.user_id = self.user_id
+      u.save
+    end
+    end
+  end
+
 
   def event_tokens=(ids)
-#    print "came HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     events = ids.split(',')
     allowed_events = []
     userevents = []
@@ -36,12 +36,10 @@ class Room < ActiveRecord::Base
         allowed_events << event[:id]
       else
         userevents << i
-#        self.user_events = userevents
       end
     end
     self.event_ids = allowed_events
-#    print "ENDING HEREEEEEEEEEEEEEEEEEEEEEEE" + self.event_ids.to_s
-#   self.user_events = userevents
+    self.user_events = userevents
   end
  
 
